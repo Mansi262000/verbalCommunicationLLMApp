@@ -1,0 +1,6 @@
+transformers
+torch
+bitsandbytes
+gradio
+fastapi
+sqlite3
