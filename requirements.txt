@@ -4,3 +4,6 @@ bitsandbytes
 gradio
 fastapi
 sqlite3
+langchain-community
+streamlit
+
