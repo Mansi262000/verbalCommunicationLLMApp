@@ -17,6 +17,8 @@ def setup_models():
     
     # Load Ollama LLM model
     global llm
+
+    
     llm = Ollama(model="mistral")
     
     print("Models loaded successfully.")

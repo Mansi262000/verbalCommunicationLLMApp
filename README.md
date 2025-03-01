@@ -10,6 +10,8 @@ This project provides AI-based feedback for speech and storytelling using Whispe
 ### Prerequisites
 Ensure you have Python 3.8+ installed along with the required dependencies:
 
+
+
 ```bash
 pip install torch torchaudio transformers langchain_community sqlite3 streamlit
 ```
