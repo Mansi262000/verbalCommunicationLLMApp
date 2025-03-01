@@ -2,7 +2,6 @@ from unittest.mock import MagicMock, patch
 import json
 import json
 from unittest.mock import MagicMock, patch
-
 from main import (
     get_feedback, impromptu_speaking, storytelling,
     conflict_resolution_scenario, voice_interface
@@ -11,7 +10,7 @@ from main import (
 
 
 
-@patch("auto_app_2.Ollama")
+@patch("main.Ollama")
 def test_get_feedback(mock_ollama):
     mock_llm = MagicMock()
     mock_llm.invoke.return_value = "Scores: Clarity: 8, Tone: 7, Engagement: 9\nTips: Improve engagement with rhetorical questions."
@@ -25,7 +24,7 @@ def test_get_feedback(mock_ollama):
     assert "Tips:" in response
 
 
-@patch("auto_app_2.Ollama")
+@patch("main.Ollama")
 def test_impromptu_speaking(mock_ollama):
     mock_llm = MagicMock()
     mock_llm.invoke.return_value = "Here is a short impromptu speech about climate change."
@@ -50,7 +49,7 @@ def test_storytelling(mock_process_feedback):
     assert "Add more descriptive language." in tips
 
 
-@patch("auto_app_2.Ollama")
+@patch("main.Ollama")
 def test_conflict_resolution_scenario(mock_ollama):
     mock_llm = MagicMock()
     mock_llm.invoke.return_value = "I understand your frustration. Let's work together to resolve this."
@@ -62,8 +61,8 @@ def test_conflict_resolution_scenario(mock_ollama):
     assert "Let's work together" in response
 
 
-@patch("auto_app_2.transcribe_audio")
-@patch("auto_app_2.process_feedback")
+@patch("main.transcribe_audio")
+@patch("main.process_feedback")
 def test_voice_interface(mock_process_feedback, mock_transcribe_audio):
     mock_transcribe_audio.return_value = "This is a test audio transcription."
     mock_process_feedback.return_value = ("Feedback content.", '{"Clarity": 9}', "Tips on speaking.")
